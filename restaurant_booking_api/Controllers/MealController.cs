@@ -13,19 +13,6 @@ namespace restaurant_booking_api.Controllers
 {
     public class MealController : ApiController
     {
-        /*[HttpGet]
-        public async Task<ActionResult<List<GetMealDtos>>> GetMeals()
-        {
-            try
-            {
-                return await Mediator.Send(new GetMealsCommandQuery());
-            }
-            catch (Exception)
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError);
-            }
-            
-        }*/
 
         [HttpGet("get-all-meals")]
 
