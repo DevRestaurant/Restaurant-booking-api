@@ -30,10 +30,6 @@ namespace restaurant_booking_api
         {
             //setup database connection for both development and production
             services.AddDbContextAndConfigurations(Environment, Configuration);
-            /*services.AddDbContextPool<RbaContext>(option =>
-            {
-                option.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]);
-            });*/
 
             services.AddAuthentication();
 
