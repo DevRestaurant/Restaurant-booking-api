@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using restaurant_booking_Application.AuthCQRS;
 using restaurant_booking_Application.AuthCQRS.Commands;
 using restaurant_booking_Application.MealCQRS.Commands;
 using restaurant_booking_Application.MealCQRS.Responses;
@@ -29,6 +30,9 @@ namespace restaurant_booking_Application.MapperClass
                 .ForMember(x => x.Address, y => y.MapFrom(x => x.Customer.Address)).ReverseMap();
 
             CreateMap<ReservationCommand, Reservation>();
+
+            //User Mapping
+            CreateMap<AppUsers, GetUser.Model>();
         }
     }
 }
