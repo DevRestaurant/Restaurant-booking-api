@@ -8,13 +8,13 @@ namespace restaurant_booking_Application.Common
 {
     public class ChatHub : Hub
     {
-        private readonly IConfiguration _config;
+        /*private readonly IConfiguration _config;
         public ChatHub(IConfiguration config)
         {
             _config = config;
-        }
+        }*/
 
-        HubConnection _connection = null;
+        //HubConnection _connection = null;
 
        /* private async Task ConnectToServer()
         {
