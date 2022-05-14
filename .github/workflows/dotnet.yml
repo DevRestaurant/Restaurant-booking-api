@@ -1,7 +1,7 @@
 name: RestaurantBookingApp
 on:
   pull_request:
-    branches: [ test ]
+    branches: test
 jobs:
   build:
     runs-on: ubuntu-latest
