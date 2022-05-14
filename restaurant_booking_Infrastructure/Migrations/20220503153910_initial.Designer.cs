@@ -10,8 +10,8 @@ using restaurant_booking_Infrastructure.Contexts;
 namespace restaurant_booking_Infrastructure.Migrations
 {
     [DbContext(typeof(RbaContext))]
-    [Migration("20220409165146_initialM")]
-    partial class initialM
+    [Migration("20220503153910_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
