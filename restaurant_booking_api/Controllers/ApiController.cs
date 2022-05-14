@@ -7,7 +7,7 @@ namespace restaurant_booking_api.Controllers
 {
     [ApiController]
     [Route("api/v1/[Controller]")]
-    [Authorize]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class ApiController : ControllerBase
     {
         private IMediator _mediator;

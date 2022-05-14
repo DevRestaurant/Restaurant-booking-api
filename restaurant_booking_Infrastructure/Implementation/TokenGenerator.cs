@@ -46,7 +46,7 @@ namespace restaurant_booking_Infrastructure.Implementation
                 (audience: Configuration["JWTSettings:Audience"],
                 issuer: Configuration["JWTSettings:Issuer"],
                 claims: authClaims,
-                expires: DateTime.Now.AddHours(2),
+                expires: DateTime.Now.AddDays(2),
                 signingCredentials: new SigningCredentials(signingKey, SecurityAlgorithms.HmacSha256)
                 );
 
