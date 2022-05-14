@@ -116,10 +116,12 @@ namespace restaurant_booking_api
             app.UseCors("AllowAll");
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
-                endpoints.MapControllers();
                 endpoints.MapHub<ChatHub>("/chat");
+                endpoints.MapControllers();
+                
             });
         }
     }

@@ -32,7 +32,8 @@ namespace restaurant_booking_Application.MapperClass
             CreateMap<ReservationCommand, Reservation>();
 
             //User Mapping
-            CreateMap<AppUsers, GetUser.Model>();
+            CreateMap<AppUsers, GetUser.Model>()
+                .ForMember(x => x.Address, y => y.MapFrom(x => x.Customer.Address));
         }
     }
 }
