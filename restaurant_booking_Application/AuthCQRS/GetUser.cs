@@ -6,6 +6,7 @@ using restaurant_booking_Domain.Entities;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace restaurant_booking_Application.AuthCQRS
 {
@@ -23,6 +24,7 @@ namespace restaurant_booking_Application.AuthCQRS
             public string LastName { get; set; }
             public string Avatar { get; set; }
             public  string Email { get; set; }
+            public string Address { get; set; }
             public string PhoneNumber { get; set; }
         }
 
@@ -39,7 +41,9 @@ namespace restaurant_booking_Application.AuthCQRS
             }
             public async Task<Response<Model>> Handle(Query request, CancellationToken cancellationToken)
             {
-                var user = _usermanager.Users?.FirstOrDefault(x => x.Id == request.Id);
+                var user = _usermanager.Users?
+                    .Include(x => x.Customer)
+                    .FirstOrDefault(x => x.Id == request.Id);
                 var userMapped = _mapper.Map<Model>(user);
                 return Response<Model>.Success("Current user retrieved successfully", userMapped);
             }

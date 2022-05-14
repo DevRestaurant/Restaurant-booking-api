@@ -40,6 +40,7 @@ namespace restaurant_booking_Infrastructure.SeederClass
                     {
                         new AppUsers
                         {
+                            Id = "87a9ee6d-7d2e-4d90-a000-1246c1286080",
                             FirstName = "Samuel",
                             LastName = "Adeosun",
                             Email = "samuel@gmail.com",
@@ -47,12 +48,18 @@ namespace restaurant_booking_Infrastructure.SeederClass
                             PhoneNumber = "08165434179",
                             PasswordHash = "Password@123",
                             EmailConfirmed = true,
-                            Avatar = "http://placehold.it/32x32",
+                            Avatar = null,
                             CreatedAt = DateTime.UtcNow,
-                            UpdatedAt = DateTime.UtcNow
+                            UpdatedAt = DateTime.UtcNow,
+                            Customer = new Customer()
+                            {
+                                Address = "12 Hallway Road M3 4GR North London, UK",
+                                AppUsersId = "87a9ee6d-7d2e-4d90-a000-1246c1286080"
+                            }
                         },
                         new AppUsers
                         {
+                            Id = "87a9ee6d-7d2e-4d90-a000-1fj40s2f091q",
                             FirstName = "Gideon",
                             LastName = "Faive",
                             Email = "gideon@gmail.com",
@@ -60,12 +67,18 @@ namespace restaurant_booking_Infrastructure.SeederClass
                             PhoneNumber = "08143547856",
                             PasswordHash = "Password@123",
                             EmailConfirmed = true,
-                            Avatar = "http://placehold.it/32x32",
+                            Avatar = null,
                             CreatedAt = DateTime.UtcNow,
-                            UpdatedAt = DateTime.UtcNow
+                            UpdatedAt = DateTime.UtcNow,
+                            Customer = new Customer()
+                            {
+                                Address = "43 Oxford Road M13 4GR Manchester, UK",
+                                AppUsersId = "87a9ee6d-7d2e-4d90-a000-1fj40s2f091q"
+                            }
                         },
                         new AppUsers
                         {
+                            Id = "f987e6d-7d2e-4d90-a000-1246c1286080",
                             FirstName = "Ombu",
                             LastName = "Ayebakuro",
                             Email = "kuro@gmail.com",
@@ -73,9 +86,14 @@ namespace restaurant_booking_Infrastructure.SeederClass
                             PhoneNumber = "08186957401",
                             PasswordHash = "Password@123",
                             EmailConfirmed = true,
-                            Avatar = "http://placehold.it/32x32",
+                            Avatar = null,
                             CreatedAt = DateTime.UtcNow,
-                            UpdatedAt = DateTime.UtcNow
+                            UpdatedAt = DateTime.UtcNow,
+                            Customer = new Customer()
+                            {
+                                Address = "Messi Road M5 GR2 Barcelona, SPAIN",
+                                AppUsersId = "f987e6d-7d2e-4d90-a000-1246c1286080"
+                            }
                         }
                     };
 
