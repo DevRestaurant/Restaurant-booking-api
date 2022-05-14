@@ -45,7 +45,7 @@ namespace restaurant_booking_Application.AuthCQRS
                     .Include(x => x.Customer)
                     .FirstOrDefault(x => x.Id == request.Id);
                 var userMapped = _mapper.Map<Model>(user);
-                return Response<Model>.Success("Current user retrieved successfully", userMapped);
+                return Response<Model>.Success("user retrieved successfully", userMapped);
             }
         }
     }
