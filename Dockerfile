@@ -29,5 +29,6 @@ WORKDIR /app
 COPY --from=publish /app/publish .
 
 COPY --from=publish /src/restaurant_booking_api/Json/Meal.json ./
+COPY --from=publish /src/restaurant_booking_api/Json/Product.json ./
 
 CMD ASPNETCORE_URLS=http://*:$PORT dotnet restaurant_booking_api.dll
