@@ -1,0 +1,68 @@
+[
+  {
+    "Id": "04d9b3e6-11aa-41d5-8de7-81c69c5757a9",
+    "ProductName": "Apple iPhone",
+    "Title": "Apple IPhone 7 Plus 5.5",
+    "Price": 870.00,
+    "Category": "Phones",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778488/iphone_nutivz.png",
+    "Description": "Apple IPhone 7 Plus 5.5 Inch 128GB+3GB 12MP + 7MP Finger Sensor 4G LTE Smartphone – Black",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  },
+  {
+    "Id": "093e58c4-cde2-46d9-97bd-8a0822fddd96",
+    "ProductName": "APPLE AirPods",
+    "Title": "APPLE AirPods Pro - White",
+    "Price": 69.99,
+    "Category": "Gadgets",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778859/airpod_k2rnsy.png",
+    "Description": "Easy listening, connect immediately to your iPhone or Apple Watch, and sound switches seamlessly between the devices. Want to listen to your Mac or iPad?",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  },
+  {
+    "Id": "a1a53a6a-61d3-46a0-aaf0-8e7dfc5532ad",
+    "ProductName": "Apple iPad",
+    "Title": "2020 Apple iPad Air 10.9'",
+    "Price": 524.99,
+    "Category": "Ipads",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778892/tablet_jjpbmm.png",
+    "Description": "Available when you purchase any new iPhone, iPad, iPod Touch, Mac or Apple TV, £4.99/month after free trial.",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  },
+  {
+    "Id": "aca33ca9-58db-49ee-b9ba-5e910f1477c6",
+    "ProductName": "Apple Watch",
+    "Title": "Wrist Watch For Apple Smartphone",
+    "Price": 79.99,
+    "Category": "Watches",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778962/watch1_tmibn9.png",
+    "Description": "Function list: home page, status, heart rate measurement, sports mode, Information, more functions",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  },
+  {
+    "Id": "d03cd77f-5dbb-4758-891c-c6a1b437f51a",
+    "ProductName": "Apple MacBook",
+    "Title": "MacBook Pro 14' 16GB RAM,1TB",
+    "Price": 999.99,
+    "Category": "Laptops",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778812/macbook_o1qqwv.png",
+    "Description": "The new MacBook Pro delivers game-changing performance for pro users. With the powerful M1 Pro to supercharge pro-level workflows while getting amazing battery life.",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  },
+  {
+    "Id": "b6168588-fbb1-4a97-ad3e-99fcd06d732d",
+    "ProductName": "APPLE iMac",
+    "Title": "Apple IMac With Retina 5K",
+    "Price": 340.00,
+    "Category": "Gadgets",
+    "Image": "https://res.cloudinary.com/chrismeyer/image/upload/v1652778933/imac_trdify.png",
+    "Description": "Take your creative ideas from conception to completion with the 27' iMac with Retina 5K Display from Apple. Intuitive and packed with powerful tools,",
+    "DateCreated": "2022-05-22T03:40:29 -01:00",
+    "UpdatedAt": "2022-05-22T03:40:29 -01:00"
+  }
+]

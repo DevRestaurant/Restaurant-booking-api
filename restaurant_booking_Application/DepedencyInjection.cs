@@ -7,6 +7,7 @@ using restaurant_booking_Application.Common.Validators;
 using restaurant_booking_Application.MapperClass;
 using restaurant_booking_Application.ReservationCQRS.Commands;
 using System.Reflection;
+using restaurant_booking_Application.GadgetProduct;
 
 namespace restaurant_booking_Application
 {
@@ -25,6 +26,9 @@ namespace restaurant_booking_Application
             //Register fluent validation
             service.AddTransient<IValidator<RegisterCommand>, UserRegisterValidator>();
             service.AddTransient<IValidator<ReservationCommand>, ReservationValidator>();
+
+            //gadget fluent validation
+            service.AddTransient<IValidator<AddGadget.Query>, GadgetValidator>();
         }
     }
 }
