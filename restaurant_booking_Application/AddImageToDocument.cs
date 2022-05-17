@@ -95,6 +95,10 @@ namespace restaurant_booking_Application
                             getGadget.Image = imageUrl;
                             _readwriteContext.GadgetProducts.Update(getGadget);
                         }
+                        else
+                        {
+                            throw new Exception("upload is not user or gadget type");
+                        }
 
                         _readwriteContext.SaveChangesAsync(cancellationToken);
                     }
@@ -103,7 +107,7 @@ namespace restaurant_booking_Application
                         return Response<string>.Fail(e.Message);
                     }
                     
-                    return Response<string>.Success("", uploadResult.Url.ToString());
+                    return Response<string>.Success("image upload successfully", uploadResult.Url.ToString());
                 }
                 catch (Exception e)
                 {
