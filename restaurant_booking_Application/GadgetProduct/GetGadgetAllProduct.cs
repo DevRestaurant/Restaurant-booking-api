@@ -13,11 +13,12 @@ using restaurant_booking_Infrastructure.Contexts;
 
 namespace restaurant_booking_Application.GadgetProduct
 {
+    
     public class GetGadgetAllProduct
     {
-        public class Query : IRequest<Response<List<Model>>>{ }
+        public class Query : IRequest<Response<IEnumerable<Result>>>{ }
 
-        public class Model
+        public class Result
         {
             public string Id { get; set; }
             public string Name { get; set; }
@@ -28,16 +29,16 @@ namespace restaurant_booking_Application.GadgetProduct
             public string Description { get; set; }
         }
 
-        public class GetAllProducts : IRequestHandler<Query, Response<List<Model>>>
+        public class GetAllProducts : IRequestHandler<Query, Response<IEnumerable<Result>>>
         {
             private readonly RbaContext _readwriteRbaContext;
             private readonly IMapper _mapper;
-            public GetAllProducts(IMapper mapper, RbaContext context) : base()
+            public GetAllProducts(IMapper mapper, RbaContext context)
             {
                 _mapper = mapper;
                 _readwriteRbaContext = context;
             }
-            public async Task<Response<List<Model>>> Handle(Query request, CancellationToken cancellationToken)
+            public async Task<Response<IEnumerable<Result>>> Handle(Query request, CancellationToken cancellationToken)
             {
                 var allGadgets = await _readwriteRbaContext.GadgetProducts
                     .Select(x => new restaurant_booking_Domain.Entities.GadgetProduct()
@@ -51,8 +52,8 @@ namespace restaurant_booking_Application.GadgetProduct
                         Description = x.Description
                     })
                     .ToListAsync();
-                var gadgetMapped = _mapper.Map<List<Model>>(allGadgets);
-                return Response<List<Model>>.Success("product retrieved successfully", gadgetMapped);
+                var gadgetMapped = _mapper.Map<IEnumerable<Result>>(allGadgets);
+                return Response<IEnumerable<Result>>.Success("product retrieved successfully", gadgetMapped);
             }
         }
     }

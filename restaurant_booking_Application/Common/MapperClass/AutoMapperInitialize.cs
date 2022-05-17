@@ -37,8 +37,18 @@ namespace restaurant_booking_Application.MapperClass
                 .ForMember(x => x.Address, y => y.MapFrom(x => x.Customer.Address));
 
             //Gadget Product mapping
-            CreateMap<restaurant_booking_Domain.Entities.GadgetProduct, GetGadgetAllProduct.Model>()
+            CreateMap<restaurant_booking_Domain.Entities.GadgetProduct, GetGadgetAllProduct.Result>()
                 .ForMember(x => x.Name, y => y.MapFrom(x => x.ProductName));
+
+            CreateMap<AddGadget.Query, restaurant_booking_Domain.Entities.GadgetProduct>()
+                .ForMember(x => x.ProductName, y => y.MapFrom(x => x.ProductName))
+                .ForMember(x => x.Title, y => y.MapFrom(x => x.ProductTitle))
+                .ForMember(x => x.Price, y => y.MapFrom(x => x.ProductPrice))
+                .ForMember(x => x.Category, y => y.MapFrom(x => x.ProductCategory))
+                .ForMember(x => x.Description, y => y.MapFrom(x => x.ProductDescription));
+
+
+
 
         }
     }
