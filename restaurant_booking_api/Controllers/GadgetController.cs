@@ -6,7 +6,9 @@ using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Web.Http;
 using System.Web.Http.Description;
+using restaurant_booking_Application;
 using HttpPostAttribute = Microsoft.AspNetCore.Mvc.HttpPostAttribute;
+using Microsoft.AspNetCore.Http;
 
 namespace restaurant_booking_api.Controllers
 {
@@ -25,6 +27,17 @@ namespace restaurant_booking_api.Controllers
         public async Task<ActionResult<Response<string>>> AddGadget([FromUri] AddGadget.Query query)
         {
             return await Mediator.Send(query);
+        }
+
+
+        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+        [HttpPost("add-image")]
+        [ResponseType(typeof(Response<string>))]
+        public async Task<ActionResult<Response<string>>> AddImage([FromForm] AddImageToDocument.Query query)
+        {
+            return await Mediator.Send(query);
+            
+
         }
     }
 }

@@ -49,18 +49,18 @@ namespace restaurant_booking_Infrastructure.Implementation
 
             var uploadResult = new ImageUploadResult();
 
-            using (var imageStream = image.OpenReadStream())
+            using var imageStream = image.OpenReadStream();
+            
+            string filename = Guid.NewGuid().ToString() + image.FileName;
+
+            uploadResult = await _cloudinary.UploadAsync(new ImageUploadParams()
             {
-                string filename = Guid.NewGuid().ToString() + image.FileName;
+                File = new FileDescription(filename + Guid.NewGuid().ToString(), imageStream),
+                PublicId = "gadget product/" + filename,
 
-                uploadResult = await _cloudinary.UploadAsync(new ImageUploadParams()
-                {
-                    File = new FileDescription(filename + Guid.NewGuid().ToString(), imageStream),
-                    PublicId = "gadget product/" + filename,
-
-                    //Transformation = new Transformation().Crop("thumb").Gravity("face")
-                });
-            }
+                //Transformation = new Transformation().Crop("thumb").Gravity("face")
+            });
+        
             return uploadResult;
         }
 
