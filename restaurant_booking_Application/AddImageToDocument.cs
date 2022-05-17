@@ -89,18 +89,19 @@ namespace restaurant_booking_Application
                         if (getUser != null)
                         {
                             getUser.Avatar = imageUrl;
-                            _readwriteContext.Users.Update(getUser);
+                            await _userManager.UpdateAsync(getUser);
                         }else if (getGadget != null)
                         {
                             getGadget.Image = imageUrl;
                             _readwriteContext.GadgetProducts.Update(getGadget);
+                            _readwriteContext.SaveChangesAsync(cancellationToken);
                         }
                         else
                         {
                             throw new Exception("upload is not user or gadget type");
                         }
 
-                        _readwriteContext.SaveChangesAsync(cancellationToken);
+                        
                     }
                     catch (Exception e)
                     {
