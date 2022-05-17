@@ -50,9 +50,7 @@ namespace restaurant_booking_Application
                     }
 
                     bool pictureFormat = false;
-
-
-
+                    
                     var listOfImageExtensions = new List<string>() { ".jpg", ".png", ".jpeg" };
 
                     foreach (var item in listOfImageExtensions)
@@ -104,8 +102,7 @@ namespace restaurant_booking_Application
                     {
                         return Response<string>.Fail(e.Message);
                     }
-
-
+                    
                     return Response<string>.Success("", uploadResult.Url.ToString());
                 }
                 catch (Exception e)
