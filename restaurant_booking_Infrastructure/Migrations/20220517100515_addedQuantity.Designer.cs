@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using restaurant_booking_Infrastructure.Contexts;
@@ -9,9 +10,10 @@ using restaurant_booking_Infrastructure.Contexts;
 namespace restaurant_booking_Infrastructure.Migrations
 {
     [DbContext(typeof(RbaContext))]
-    partial class RbaContextModelSnapshot : ModelSnapshot
+    [Migration("20220517100515_addedQuantity")]
+    partial class addedQuantity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

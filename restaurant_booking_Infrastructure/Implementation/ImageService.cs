@@ -56,9 +56,9 @@ namespace restaurant_booking_Infrastructure.Implementation
                 uploadResult = await _cloudinary.UploadAsync(new ImageUploadParams()
                 {
                     File = new FileDescription(filename + Guid.NewGuid().ToString(), imageStream),
-                    PublicId = "Expense Attachment/" + filename,
+                    PublicId = "gadget product/" + filename,
 
-                    Transformation = new Transformation().Crop("thumb").Gravity("face").Width(150)
+                    //Transformation = new Transformation().Crop("thumb").Gravity("face")
                 });
             }
             return uploadResult;

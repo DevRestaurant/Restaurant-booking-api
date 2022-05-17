@@ -19,6 +19,8 @@ namespace restaurant_booking_Infrastructure.Contexts
         public DbSet<Reviews> Review { get; set; }
         public DbSet<Meal> Meals { get; set; }
         public DbSet<MealPrice> MealPrices { get; set; }
+        public DbSet<GadgetProduct> GadgetProducts { get; set; }
+        public DbSet<GoodsOrdered> CartProduct { get; set; }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = default)
         {

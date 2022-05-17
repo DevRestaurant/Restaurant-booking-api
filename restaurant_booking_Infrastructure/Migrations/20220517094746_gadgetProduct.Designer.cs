@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using restaurant_booking_Infrastructure.Contexts;
@@ -9,9 +10,10 @@ using restaurant_booking_Infrastructure.Contexts;
 namespace restaurant_booking_Infrastructure.Migrations
 {
     [DbContext(typeof(RbaContext))]
-    partial class RbaContextModelSnapshot : ModelSnapshot
+    [Migration("20220517094746_gadgetProduct")]
+    partial class gadgetProduct
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -288,9 +290,6 @@ namespace restaurant_booking_Infrastructure.Migrations
 
                     b.Property<string>("ProductId")
                         .HasColumnType("text");
-
-                    b.Property<int>("QuantityOrdered")
-                        .HasColumnType("integer");
 
                     b.Property<decimal>("TotalProductPrice")
                         .HasColumnType("numeric");
