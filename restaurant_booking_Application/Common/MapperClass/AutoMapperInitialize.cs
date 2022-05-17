@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using restaurant_booking_Application.AuthCQRS;
 using restaurant_booking_Application.AuthCQRS.Commands;
+using restaurant_booking_Application.GadgetProduct;
 using restaurant_booking_Application.MealCQRS.Commands;
 using restaurant_booking_Application.MealCQRS.Responses;
 using restaurant_booking_Application.ReservationCQRS.Commands;
@@ -34,6 +35,11 @@ namespace restaurant_booking_Application.MapperClass
             //User Mapping
             CreateMap<AppUsers, GetUser.Model>()
                 .ForMember(x => x.Address, y => y.MapFrom(x => x.Customer.Address));
+
+            //Gadget Product mapping
+            CreateMap<restaurant_booking_Domain.Entities.GadgetProduct, GetGadgetAllProduct.Model>()
+                .ForMember(x => x.Name, y => y.MapFrom(x => x.ProductName));
+
         }
     }
 }

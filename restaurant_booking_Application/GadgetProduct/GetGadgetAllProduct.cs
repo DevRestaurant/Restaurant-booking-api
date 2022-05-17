@@ -2,18 +2,20 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using AutoMapper;
 using MediatR;
+using Microsoft.EntityFrameworkCore;
 using restaurant_booking_Application.Common;
+using restaurant_booking_Domain.Entities;
+using restaurant_booking_Infrastructure.Contexts;
 
 namespace restaurant_booking_Application.GadgetProduct
 {
     public class GetGadgetAllProduct
     {
-        public class Query : IRequest<Response<Model>>
-        {
-
-        }
+        public class Query : IRequest<Response<List<Model>>>{ }
 
         public class Model
         {
@@ -24,6 +26,34 @@ namespace restaurant_booking_Application.GadgetProduct
             public string Category { get; set; }
             public string Image { get; set; }
             public string Description { get; set; }
+        }
+
+        public class GetAllProducts : IRequestHandler<Query, Response<List<Model>>>
+        {
+            private readonly RbaContext _readwriteRbaContext;
+            private readonly IMapper _mapper;
+            public GetAllProducts(IMapper mapper, RbaContext context) : base()
+            {
+                _mapper = mapper;
+                _readwriteRbaContext = context;
+            }
+            public async Task<Response<List<Model>>> Handle(Query request, CancellationToken cancellationToken)
+            {
+                var allGadgets = await _readwriteRbaContext.GadgetProducts
+                    .Select(x => new restaurant_booking_Domain.Entities.GadgetProduct()
+                    {
+                        Id = x.Id,
+                        ProductName = x.ProductName,
+                        Title = x.Title,
+                        Price = x.Price,
+                        Category = x.Category,
+                        Image = x.Image,
+                        Description = x.Description
+                    })
+                    .ToListAsync();
+                var gadgetMapped = _mapper.Map<List<Model>>(allGadgets);
+                return Response<List<Model>>.Success("product retrieved successfully", gadgetMapped);
+            }
         }
     }
 }

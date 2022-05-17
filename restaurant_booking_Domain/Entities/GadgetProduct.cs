@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,16 +18,5 @@ namespace restaurant_booking_Domain.Entities
         public DateTime DateCreated { get; set; }
         public DateTime UpdatedAt { get; set; }
 
-    }
-
-    public class GoodsOrdered
-    {
-        [Key]
-        public string AppUsersId { get; set; }
-        public AppUsers AppUser { get; set; }
-        public GadgetProduct Product { get; set; }
-        public int QuantityOrdered { get; set; }
-        public decimal TotalProductPrice { get; set; }
-        public DateTime OrderDateTime { get; set; }
     }
 }
