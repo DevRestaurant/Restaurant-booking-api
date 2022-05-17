@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
-using CloudinaryDotNet;
+﻿using CloudinaryDotNet;
 using CloudinaryDotNet.Actions;
 using MediatR;
 using Microsoft.AspNetCore.Http;
@@ -12,6 +6,12 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.Configuration;
 using restaurant_booking_Application.Common;
 using restaurant_booking_Domain.Entities;
+using restaurant_booking_Infrastructure.Contexts;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace restaurant_booking_Application
 {
@@ -28,11 +28,15 @@ namespace restaurant_booking_Application
             private readonly IConfiguration _config;
             private readonly Cloudinary _cloudinary;
             private readonly UserManager<AppUsers> _userManager;
-            public AddImage(IConfiguration config, Cloudinary cloudinary, UserManager<AppUsers> userManager)
+            private readonly RbaContext _readwriteContext;
+            public AddImage(IConfiguration config, Cloudinary cloudinary,
+                UserManager<AppUsers> userManager,
+                RbaContext context)
             {
                 _config = config;
                 _cloudinary = cloudinary;
                 _userManager = userManager;
+                _readwriteContext = context;
             }
 
             public async Task<Response<string>> Handle(Query request, CancellationToken cancellationToken)
@@ -49,7 +53,7 @@ namespace restaurant_booking_Application
 
 
 
-                    var listOfImageExtensions = new List<string>() {".jpg", ".png", ".jpeg"};
+                    var listOfImageExtensions = new List<string>() { ".jpg", ".png", ".jpeg" };
 
                     foreach (var item in listOfImageExtensions)
                     {
@@ -74,9 +78,8 @@ namespace restaurant_booking_Application
                     uploadResult = await _cloudinary.UploadAsync(new ImageUploadParams()
                     {
                         File = new FileDescription(filename + Guid.NewGuid().ToString(), imageStream),
-                        PublicId = "gadget product/" + filename,
-
-                        //Transformation = new Transformation().Crop("thumb").Gravity("face")
+                        PublicId = filename,
+                        
                     });
 
                     var imageUrl = uploadResult.Url.ToString();
@@ -84,11 +87,22 @@ namespace restaurant_booking_Application
                     try
                     {
                         var getUser = _userManager.Users.FirstOrDefault(x => x.Id == request.Id);
+                        var getGadget = _readwriteContext.GadgetProducts.FirstOrDefault(x => x.Id == request.Id);
+                        if (getUser != null)
+                        {
+                            getUser.Avatar = imageUrl;
+                            _readwriteContext.Users.Update(getUser);
+                        }else if (getGadget != null)
+                        {
+                            getGadget.Image = imageUrl;
+                            _readwriteContext.GadgetProducts.Update(getGadget);
+                        }
+
+                        _readwriteContext.SaveChangesAsync(cancellationToken);
                     }
                     catch (Exception e)
                     {
-                        Console.WriteLine(e);
-                        throw;
+                        return Response<string>.Fail(e.Message);
                     }
 
 
