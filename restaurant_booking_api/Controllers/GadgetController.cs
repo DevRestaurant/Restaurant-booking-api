@@ -21,7 +21,7 @@ namespace restaurant_booking_api.Controllers
             return await Mediator.Send(new GetGadgetAllProduct.Query());
         }
 
-        [Microsoft.AspNetCore.Authorization.AllowAnonymous]
+        
         [HttpPost("add-product")]
         [ResponseType(typeof(Response<string>))]
         public async Task<ActionResult<Response<string>>> AddGadget([FromUri] AddGadget.Query query)
@@ -37,7 +37,6 @@ namespace restaurant_booking_api.Controllers
         {
             return await Mediator.Send(query);
             
-
         }
     }
 }
