@@ -94,7 +94,7 @@ namespace restaurant_booking_Application
                         {
                             getGadget.Image = imageUrl;
                             _readwriteContext.GadgetProducts.Update(getGadget);
-                            _readwriteContext.SaveChangesAsync(cancellationToken);
+                            await _readwriteContext.SaveChangesAsync(cancellationToken);
                         }
                         else
                         {
