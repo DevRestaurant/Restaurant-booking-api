@@ -13,9 +13,8 @@ namespace restaurant_booking_api.Controllers
 {
     public class MealController : ApiController
     {
-
-        [HttpGet("get-all-meals")]
         [AllowAnonymous]
+        [HttpGet("get-all-meals")]
         public async Task<ActionResult<Response<IEnumerable<GetMealDtos>>>> GetMeals()
         {
             return await Mediator.Send(new GetMealsCommandQuery());
